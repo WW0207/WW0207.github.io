@@ -8,7 +8,7 @@ var canvas;
 var points = [];
 var colors = [];
 
-var numTimesToSubdivide = 3;
+var numTimesToSubdivide = prompt("请输入你要划分的层次:","");
 
 window.onload = function init() {
     canvas = document.getElementById("gl-canvas");
