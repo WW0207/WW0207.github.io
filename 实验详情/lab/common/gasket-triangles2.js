@@ -7,7 +7,10 @@ var gl;
 
 var points = [];
 
-var numTimesToSubdivide = prompt("请输入你要划分的层次:","");
+//var numTimesToSubdivide = prompt("请输入你要划分的层次:","");
+var numTimesToSubdivide=4;
+var  theta= prompt("请输入你要旋转的度数:","")
+
 
 window.onload = function initTriangles(){
 	canvas = document.getElementById( "gl-canvas" );
@@ -25,7 +28,7 @@ window.onload = function initTriangles(){
 		 0,  1,  0,
 		 1, -1,  0
 	];
-
+	
 	// var u = vec3.create();
 	// vec3.set( u, -1, -1, 0 );
 	var u = vec3.fromValues( vertices[0], vertices[1], vertices[2] );
@@ -35,7 +38,7 @@ window.onload = function initTriangles(){
 	// var w = vec3.create();
 	// vec3.set( w, 1, -1, 0 );
 	var w = vec3.fromValues( vertices[6], vertices[7], vertices[8] );
-
+	
 	divideTriangle( u, v, w, numTimesToSubdivide );
 
 	// configure webgl
@@ -60,16 +63,16 @@ window.onload = function initTriangles(){
 };
 
 function triangle( a, b, c ){
-	//var k;
+	var k;
 	points.push( a[0], a[1], a[2] );
 	points.push( b[0], b[1], b[2] );
 	points.push( c[0], c[1], c[2] );
-	// for( k = 0; k < 3; k++ )
-	// 	points.push( a[k] );
-	// for( k = 0; k < 3; k++ )
-	// 	points.push( b[k] );
-	// for( k = 0; k < 3; k++ )
-	//     points.push( c[k] );
+	for( k = 0; k < 3; k++ )
+		points.push( a[k] );
+	for( k = 0; k < 3; k++ )
+	points.push( b[k] );
+	for( k = 0; k < 3; k++ )
+	  points.push( c[k] );
 }
 
 function divideTriangle( a, b, c, count ){
@@ -90,10 +93,11 @@ function divideTriangle( a, b, c, count ){
 		divideTriangle( a, ab, ca, count );
 		divideTriangle( b, bc, ab, count );
 		divideTriangle( c, ca, bc, count );
+		divideTriangle(ab, ca, bc, count );
 	}
 }
 
 function renderTriangles(){
 	gl.clear( gl.COLOR_BUFFER_BIT );
-	gl.drawArrays( gl.TRIANGLES, 0, points.length/3 );
+	gl.drawArrays( gl.LINES, 0, points.length/3 );
 }
