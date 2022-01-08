@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-type" content="text/html;charset=utf-8">
-  <title>Lab4-b</title>
-
+  <title>Lab4-c</title>
+  
   <script id="vertex-shader" type="x-shader/x-vertex">
         attribute vec4 vPosition;
         attribute vec4 vColor;
         varying vec4 v_color;
-
         uniform vec3 theta;
-
-        uniform vec3 uTrans;
+        uniform vec3 beta;
 
         void main(){
             vec3 angles = radians( theta );
@@ -33,14 +31,15 @@
                             0.0, 0.0, 1.0, 0.0,
                             0.0, 0.0, 0.0, 1.0
                             );
-            mat4 tx = mat4( 1.0, 0.0, 0.0, 0.0,
-                            0.0, 1.0, 0.0, 0.0,
-                            0.0, 0.0, 1.0, 0.0,
-                            uTrans[0], uTrans[1], uTrans[2], 1.0
-                            );
+            mat4 scale = mat4( beta[0], 0.0, 0.0, 0.0,
+                              0.0, beta[1], 0.0, 0.0,
+                              0.0, 0.0, beta[2], 0.0,
+                              0.0, 0.0, 0.0, 1.0
+                             );
 
             v_color = vColor;
-            gl_Position = tx * rz * ry * rx * vPosition;
+            gl_Position = scale * rz * ry * rx * vPosition;
+            gl_Position.z = -gl_Position.z;
         }
 
     </script>
@@ -54,20 +53,18 @@
 	<script type="text/javascript" src="common/webgl-utils.js"></script>
 	<script type="text/javascript" src="common/initShaders.js"></script>
 	<script type="text/javascript" src="common/gl-matrix-min.js"></script>
-	
-	<script type="text/javascript" src="js/Lab4-b.js"></script>
+	<script type="text/javascript" src="js/Lab4-c.js"></script>
 </head>
 <body>
-<h1>平移立方体</h1>
+<h1>缩放立方体</h1>
 <canvas id="gl-canvas" width="512" height="512"></canvas>
 <div>
     <button id="xbutton" >绕X轴旋转</button>
     <button id="ybutton">绕Y轴旋转</button>
     <button id="zbutton">绕Z轴旋转</button><br>
-    <label>沿X轴平移</label><input type="range" id="xTrans" min="-100" max="100" step="1">
-    <label>沿Y轴平移</label><input type="range" id="yTrans" min="-100" max="100" step="1">
-    <label>沿Z轴平移</label><input type="range" id="zTrans" min="-100" max="100" step="1">
+    <label>沿X轴缩放</label><input type="range" id="xScale" min="0.1" max="2" step="0.1">
+    <label>沿Y轴缩放</label><input type="range" id="yScale" min="0.1" max="2" step="0.1">
+    <label>沿Z轴缩放</label><input type="range" id="zScale" min="0.1" max="2" step="0.1">
 </div>
-
 </body>
 </html>

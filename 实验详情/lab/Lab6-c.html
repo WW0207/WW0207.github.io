@@ -2,15 +2,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charet=UTF-8">
-        <title>Shading Demo for objects</title>
+        <title>Shading</title>
 
-        <script type='text/javascript' src="common/objloader.js"></script>
         <script type="text/javascript" src="common/webgl-utils.js"></script>
         <script type="text/javascript" src="common/initShaders.js"></script>
-        <script type="text/javascript" src="common/gl-matrix.js"></script>
-
-        <script type='text/javascript' src='js/shaderRender.js'></script>
-       
+        <script type="text/javascript" src="common/gl-matrix-min.js"></script>
+         <script type="text/javascript" src="common//objloader.js"></script>
+        
+        <script type="text/javascript" src="js/Lab6-c.js"></script>
         <script type="text/javascript">
             var renderer = 0;
 
@@ -20,7 +19,7 @@
 
                 renderer = new Renderer("gl-canvas", vertSrc, fragSrc);
                 renderer.init();
-                
+                //renderer.display();
             }
 
             function updateRenderer() {

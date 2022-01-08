@@ -24,59 +24,19 @@
 		}
 	</script>
 
-    <script type="text/javascript" src="common/webgl-utils.js"></script>
-    <script type="text/javascript" src="common/initShaders.js"></script>
-    <script type="text/javascript" src="common/gl-matrix.js"></script>
-    <script type="text/javascript" src="common/objloader.js"></script>
-
-    <script type="text/javascript" src="js/wiresphere.js"></script>
+   <script type="text/javascript" src="common/webgl-utils.js"></script>
+   <script type="text/javascript" src="common/initShaders.js"></script>
+   <script type="text/javascript" src="common/gl-matrix-min.js"></script>
+    <script type="text/javascript" src="common//objloader.js"></script>
+   
+   <script type="text/javascript" src="js/Lab6-a.js"></script>
 </head>
 
 <body onload="initSphere()">
-    <h1>显示一个球体线框模型</h1>
-    <table style="border:1px solid black">
-        <caption align="bottom">按键设置</caption>
-        <tr>
-            <td>a</td>
-            <td>d</td>
-            <td>w</td>
-            <td>s</td>
-            <td>z</td>
-            <td>x</td>
-        </tr>
-        <tr>
-            <td>绕x轴正向转动</td>
-            <td>绕x轴负向转动</td>
-            <td>绕y轴正向转动</td>
-            <td>绕y轴负向转动</td>
-            <td>绕z轴正向转动</td>
-            <td>绕z轴负向转动</td>
-        </tr>
-        <tr>
-            <td>h</td>
-            <td>k</td>
-            <td>u</td>
-            <td>j</td>
-            <td>m</td>
-            <td>n</td>
-        </tr>
-        <tr>
-            <td>沿x轴负向移动</td>
-            <td>沿x轴正向移动</td>
-            <td>沿y轴正向移动</td>
-            <td>沿y轴负向移动</td>
-            <td>沿z轴正向移动</td>
-            <td>沿z轴负向移动</td>
-        </tr>
-        <tr>
-            <td>v</td>
-            <td>b</td>
-        </tr>
-        <tr>
-            <td>增加分块</td>
-            <td>减小分块</td>
-        </tr>
-    </table>
+    <h1>绘制一个球</h1>
+   <h3 align="center">v   增加分块</h3>
+   <h3 align="center">b   减少分块</h3>
+
     <canvas id="gl-canvas" width="800" height="800">
         你的浏览器不支持HTML5 Canvas元素
     </canvas>

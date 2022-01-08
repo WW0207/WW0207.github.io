@@ -7,7 +7,7 @@ var gl;
 
 var points = [];
 
-//var numTimesToSubdivide = prompt("请输入你要划分的层次:","");
+var numTimesToSubdivide = prompt("请输入你要划分的层次:","");
 var numTimesToSubdivide=4;
 var  theta= prompt("请输入你要旋转的度数:","")
 
